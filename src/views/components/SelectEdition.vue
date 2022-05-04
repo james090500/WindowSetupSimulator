@@ -1,13 +1,13 @@
 <template>
     <div>
         <IconWindow title="Windows Setup">
-            <div class="p-5">
-                <h3>Select the operating system you want to install</h3>
-                <div class="table-responsive border">
-                    <table class="table table-borderless table-sm">
+            <div class="py-3 px-5">
+                <p class="title pt-2 pb-4">Select the operating system you want to install</p>
+                <div class="table-responsive windows-border">
+                    <table class="table table-borderless table-sm w-100">
                         <thead>
                             <tr>
-                                <th>Operating System</th>
+                                <th class="col-8">Operating System</th>
                                 <th>Architecture</th>
                                 <th>Data modified</th>
                             </tr>
@@ -23,11 +23,11 @@
                 </div>
                 <div>
                     <p class="m-0">Description:</p>
-                    <p>Windows 10</p>
+                    <p>{{activeEdition}}</p>
                 </div>
-                <div class="text-right" style="margin-top: 10vh">
-                    <button style="padding: 0 1vw" @click="$emit('next_screen')">Next</button>
-                </div>
+            </div>
+            <div class="text-end" style="margin-top: 10vh">
+                <button class="m-3" @click="$emit('next_screen')">Next</button>
             </div>
         </IconWindow>
         <h1 class="text-danger">Dev note: This option does not always appear</h1>
@@ -35,12 +35,9 @@
 </template>
 
 <style scoped>
-    .text-right {
-        text-align: right;
-    }
-
-    h3 {
-        color: #005ACE
+    .title {
+        color: #005ACE;
+        font-size: 1.15em;
     }
 
     .table-responsive {
@@ -52,10 +49,22 @@
         color: white;
         background: #00036E;
     }
+
+    button {
+        padding: 0 2vh;
+    }
+
+    tbody {
+        cursor: pointer;
+    }
+
+    .windows-border {
+        border: 2px inset #D1D3D2 !important
+    }
 </style>
 
 <script>
-    import IconWindow from '@/components/templates/IconWindow.vue'
+    import IconWindow from '@/views/components/templates/IconWindow.vue'
 
     export default {
         data() {

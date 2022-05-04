@@ -8,6 +8,9 @@
             <InstallNow v-else-if="state == 1" @next_screen="nextScreen"/>
             <ProductKey v-else-if="state == 2" @previous_screen="previousScreen" @next_screen="nextScreen"/>
             <SelectEdition v-else-if="state == 3" @previous_screen="previousScreen" @next_screen="nextScreen"/>
+            <SelectInstallationType v-else-if="state == 4" @previous_screen="previousScreen" @next_screen="nextScreen"/>
+            <SelectDrive v-else-if="state == 5" @previous_screen="previousScreen" @next_screen="nextScreen"/>
+            <InstallScreen v-else-if="state == 6"/>
           </Transition>
         </div>
       </div>
@@ -16,7 +19,7 @@
       <div class="row g-1 text-white windows-progress">
         <div class="col-2">
           <div class="progress w-100">
-            <div class="progress-bar" role="progressbar" style="width: 33%"></div>
+            <div class="progress-bar" role="progressbar" :style="{'width': progressWidth()}"></div>
           </div>
           <div class="d-flex">
             <h1>1</h1>
@@ -25,7 +28,7 @@
         </div>
         <div class="col">
           <div class="progress w-100">
-            <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+            <div class="progress-bar" role="progressbar"></div>
           </div>
           <div class="d-flex">
             <h1>2</h1>
@@ -38,15 +41,18 @@
 </template>
 
 <script>
-  import LanguageSetup from '@/components/LanguageSetup.vue'
-  import InstallNow from '@/components/InstallNow.vue'
-  import ProductKey from '@/components/ProductKey.vue'
-  import SelectEdition from '@/components/SelectEdition.vue'
+  import LanguageSetup from '@/views/components/LanguageSetup.vue'
+  import InstallNow from '@/views/components/InstallNow.vue'
+  import ProductKey from '@/views/components/ProductKey.vue'
+  import SelectEdition from '@/views/components/SelectEdition.vue'
+  import SelectInstallationType from '@/views/components/SelectInstallationType.vue'
+  import SelectDrive from '@/views/components/SelectDrive.vue'
+  import InstallScreen from '@/views/components/InstallScreen.vue'
 
   export default {
     data() {
       return {
-        state: 2
+        state: 0
       }
     },
     methods: {
@@ -55,13 +61,26 @@
       },
       nextScreen() {
         this.state++;
+      },
+      progressWidth() {
+        console.log(this.state)
+        if(this.state == 6) {
+          return "100%";
+        } else if(this.state == 5) {
+          return "77%";
+        } else {
+          return "33%";
+        }
       }
     },
     components: {
       LanguageSetup,
       InstallNow,
       ProductKey,
-      SelectEdition
+      SelectEdition,
+      SelectInstallationType,
+      SelectDrive,
+      InstallScreen
     }
   }
 </script>
@@ -72,7 +91,7 @@
   }
 
   body {
-    background: #180153;
+    background-color: #180153 !important;
   }
 
   .div-mid {
@@ -92,12 +111,12 @@
   }
 
   .progress {
-    border-radius: 0;
+    border-radius: 0 !important;
   }
 
   .progress-bar {
-    border-radius: 0;
-    background: green;
+    border-radius: 0 !important;
+    background-color: #99CC33 !important;
   }
 
   .windows-progress {

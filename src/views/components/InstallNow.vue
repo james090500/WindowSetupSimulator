@@ -22,13 +22,10 @@
         padding: 1vh 3vh;
         border: 1px solid white;
     }
-    .text-right {
-        text-align: right;
-    }
 </style>
 
 <script>
-    import SimpleWindow from '@/components/templates/SimpleWindow.vue'
+    import SimpleWindow from '@/views/components/templates/SimpleWindow.vue'
 
     export default {
         emits: ["next_screen"],

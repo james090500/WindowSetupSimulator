@@ -7,7 +7,7 @@
                 </div>
             </div>
             <div class="row justify-content-center text-white mb-2" style="margin-top: 10vh;">
-                <label class="col-sm-4 text-right">Language to install:</label>
+                <label class="col-sm-4 text-end">Language to install:</label>
                 <div class="col-sm-7">
                     <select class="w-100">
                         <option>English (UK)</option>
@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="row justify-content-center text-white mb-2">
-                <label class="col-sm-4 text-right">Time and currency format:</label>
+                <label class="col-sm-4 text-end">Time and currency format:</label>
                 <div class="col-sm-7">
                     <select class="w-100">
                         <option>English (UK)</option>
@@ -23,15 +23,15 @@
                 </div>
             </div>
             <div class="row justify-content-center text-white mb-2">
-                <label class="col-sm-4 text-right">Keyboard or input method:</label>
+                <label class="col-sm-4 text-end">Keyboard or input method:</label>
                 <div class="col-sm-7">
                     <select class="w-100">
-                        <option>English (UK)</option>
+                        <option>UK</option>
                     </select>
                 </div>
             </div>
             <p class="text-white text-center" style="margin: 5vh 0 2vh">Enter your language and other preferences and click "Next" to continue.</p>
-            <div class="text-right">
+            <div class="text-end">
                 <button style="padding: 0 1vw" @click="$emit('next_screen')">Next</button>
             </div>
             <small class="text-white">Microsoft Corporation. All rights reserved.</small>
@@ -39,14 +39,8 @@
     </SimpleWindow>
 </template>
 
-<style scoped>
-    .text-right {
-        text-align: right;
-    }
-</style>
-
 <script>
-    import SimpleWindow from '@/components/templates/SimpleWindow.vue'
+    import SimpleWindow from '@/views/components/templates/SimpleWindow.vue'
 
     export default {
         emits: ["next_screen"],

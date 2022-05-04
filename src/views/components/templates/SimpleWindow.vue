@@ -3,9 +3,9 @@
         <div class="title">
             {{title}}
             <div class="buttons">
-                <button><font-awesome-icon icon="minus"/></button>
-                <button disabled><font-awesome-icon :icon="['far', 'square']"/></button>
-                <button><font-awesome-icon icon="x"/></button>
+                <button class="btn btn-light"><font-awesome-icon icon="minus"/></button>
+                <button class="btn btn-light" disabled><font-awesome-icon :icon="['far', 'square']"/></button>
+                <button class="btn btn-danger"><font-awesome-icon icon="x"/></button>
             </div>
         </div>
         <slot/>
@@ -33,6 +33,11 @@
 
     button {
         margin-left: 1px;
+    }
+
+    .btn {
+        padding-top: -1vh;
+        padding: 0 1.5vh;
     }
 </style>
 
